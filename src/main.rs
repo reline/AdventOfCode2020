@@ -24,8 +24,8 @@ fn main() {
     match args.day {
         Day::DayOne { path } => {
             let expense_report = io::file_to_int_array(path);
-            let result = dayone::partone(expense_report);
-            println!("{}", result);
+            println!("Part One: {}", dayone::partone(&expense_report));
+            println!("Part Two: {}", dayone::parttwo(&expense_report));
         }
     }
 }
