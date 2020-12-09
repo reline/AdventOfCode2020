@@ -17,3 +17,11 @@ pub fn file_to_int_array(path: PathBuf) -> Vec<i32> {
         .filter_map(Result::ok)
         .collect::<Vec<i32>>()
 }
+
+pub fn file_to_lines(path: PathBuf) -> Vec<String> {
+    let file = File::open(path).unwrap();
+    BufReader::new(file)
+        .lines()
+        .filter_map(Result::ok)
+        .collect::<Vec<String>>()
+}

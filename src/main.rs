@@ -1,4 +1,5 @@
 mod dayone;
+mod daytwo;
 mod io;
 
 use structopt::StructOpt;
@@ -17,6 +18,10 @@ enum Day {
         #[structopt(parse(from_os_str))]
         path: std::path::PathBuf,
     },
+    DayTwo {
+        #[structopt(parse(from_os_str))]
+        path: std::path::PathBuf,
+    },
 }
 
 fn main() {
@@ -26,6 +31,11 @@ fn main() {
             let expense_report = io::file_to_int_array(path);
             println!("Part One: {}", dayone::partone(&expense_report));
             println!("Part Two: {}", dayone::parttwo(&expense_report));
+        }
+        Day::DayTwo { path } => {
+            let passwords = io::file_to_lines(path);
+            println!("Part One: {}", daytwo::partone(&passwords));
+            println!("Part Two: {}", daytwo::parttwo(&passwords));
         }
     }
 }
