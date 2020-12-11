@@ -1,3 +1,4 @@
+mod dayfive;
 mod dayfour;
 mod dayone;
 mod daythree;
@@ -32,6 +33,10 @@ enum Day {
         #[structopt(parse(from_os_str))]
         path: std::path::PathBuf,
     },
+    DayFive {
+        #[structopt(parse(from_os_str))]
+        path: std::path::PathBuf,
+    },
 }
 
 fn main() {
@@ -56,6 +61,11 @@ fn main() {
             let passports = io::file_to_lines(path);
             println!("Part One: {}", dayfour::partone(&passports));
             println!("Part Two: {}", dayfour::parttwo(&passports));
+        }
+        Day::DayFive { path } => {
+            let seats = io::file_to_lines(path);
+            println!("Part One: {}", dayfive::partone(&seats));
+            println!("Part Two: {}", dayfive::parttwo(&seats));
         }
     }
 }
