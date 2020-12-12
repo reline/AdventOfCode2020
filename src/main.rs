@@ -73,7 +73,7 @@ fn main() {
             println!("Part Two: {}", dayfive::parttwo(&seats));
         }
         Day::DaySix { path } => {
-            let answers = io::file_to_lines(path);
+            let answers = io::file_to_string(path);
             println!("Part One: {}", daysix::partone(&answers));
             println!("Part Two: {}", daysix::parttwo(&answers));
         }

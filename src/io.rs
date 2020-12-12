@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{BufRead, BufReader, Error, ErrorKind};
+use std::io::{BufRead, BufReader, Error, ErrorKind, Read};
 use std::path::PathBuf;
 
 pub fn file_to_int_array(path: PathBuf) -> Vec<i32> {
@@ -24,4 +24,11 @@ pub fn file_to_lines(path: PathBuf) -> Vec<String> {
         .lines()
         .filter_map(Result::ok)
         .collect::<Vec<String>>()
+}
+
+pub fn file_to_string(path: PathBuf) -> String {
+    let mut file = File::open(path).unwrap();
+    let mut string = String::new();
+    file.read_to_string(&mut string).unwrap();
+    return string;
 }
