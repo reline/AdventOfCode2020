@@ -5,6 +5,7 @@ mod daysix;
 mod daythree;
 mod daytwo;
 mod io;
+mod reduce;
 
 use structopt::StructOpt;
 
