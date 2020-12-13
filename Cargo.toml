@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 structopt = "0.3.13"
 string-builder = "0.2.0"
+regex = "1"
