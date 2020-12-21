@@ -86,6 +86,7 @@ fn main() {
         Day::DaySeven { path } => {
             let rules = io::file_to_string(path);
             println!("Part One: {}", dayseven::partone(&rules));
+            println!("Part Two: {}", dayseven::parttwo(&rules));
         }
     }
 }
